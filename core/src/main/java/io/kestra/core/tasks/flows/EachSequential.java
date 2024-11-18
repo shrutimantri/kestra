@@ -66,27 +66,28 @@ import java.util.Optional;
                         then:
                           - id: after_if
                             type: io.kestra.core.tasks.debugs.Return
-                            format: 'After if {{ parent.taskrun.value }}'"""
+                            format: 'After if {{ parent.taskrun.value }}'
+                """
         ),
         @Example(
             full = true,
             title = "This task shows that the value can be a bullet-style list. The task iterates over the list of values and executes the `each-value` child task for each value.",
-            code = {
-                "id: each_sequential",
-                "namespace: dev",
-                "",
-                "tasks:",
-                "  - id: each-sequential",
-                "    type: io.kestra.core.tasks.flows.EachSequential",
-                "    value: ",
-                "      - value 1",
-                "      - value 2",
-                "      - value 3",
-                "    tasks:",
-                "      - id: each-value",
-                "        type: io.kestra.core.tasks.debugs.Return",
-                "        format: \"{{ task.id }} with value '{{ taskrun.value }}'\"",
-            }
+            code = """
+                id: each_sequential
+                namespace: dev
+                
+                tasks:
+                  - id: each-sequential
+                    type: io.kestra.core.tasks.flows.EachSequential
+                    value: 
+                      - value 1
+                      - value 2
+                      - value 3
+                    tasks:
+                      - id: each-value
+                        type: io.kestra.core.tasks.debugs.Return
+                        format: "{{ task.id }} with value '{{ taskrun.value }}'"
+                """
         ),        
     }
 )

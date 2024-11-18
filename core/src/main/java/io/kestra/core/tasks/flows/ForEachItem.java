@@ -173,7 +173,7 @@ import static io.kestra.core.utils.Rethrow.throwFunction;
         ),
         @Example(
             title = """
-                This example shows how to use the combination of `EachSequential` and `ForEachItem` tasks to process files from an S3 bucket. The `EachSequential` iterates over files from the S3 trigger, and the `ForEachItem` task is used to split each file into batches. The `process_batch` subflow is then called with the `data` input parameter set to the URI of the batch to process.
+                This example shows how to use the combination of `ForEach` and `ForEachItem` tasks to process files from an S3 bucket. The `ForEach` iterates over files from the S3 trigger, and the `ForEachItem` task is used to split each file into batches. The `process_batch` subflow is then called with the `data` input parameter set to the URI of the batch to process.
 
                 ```yaml
                 id: process_batch
@@ -196,8 +196,8 @@ import static io.kestra.core.utils.Rethrow.throwFunction;
 
                 tasks:
                   - id: loop_over_files
-                    type: io.kestra.core.tasks.flows.EachSequential
-                    value: "{{ trigger.objects | jq('.[].uri') }}"
+                    type: io.kestra.core.tasks.flows.ForEach
+                    values: "{{ trigger.objects | jq('.[].uri') }}"
                     tasks:
                       - id: subflow_per_batch
                         type: io.kestra.core.tasks.flows.ForEachItem

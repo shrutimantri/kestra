@@ -3,15 +3,15 @@ namespace: io.kestra.tests
 
 tasks:
   - id: 1_each
-    type: io.kestra.core.tasks.flows.EachSequential
-    value: ["s1", "s2", "s3"]
+    type: io.kestra.core.tasks.flows.ForEach
+    values: ["s1", "s2", "s3"]
     tasks:
       - id: 1-1_return
         type: io.kestra.core.tasks.debugs.Return
         format: "{{task.id}} > {{taskrun.value}} > {{taskrun.startDate}}"
       - id: 1-2_each
-        type: io.kestra.core.tasks.flows.EachSequential
-        value: '["a a", "b b"]'
+        type: io.kestra.core.tasks.flows.ForEach
+        values: '["a a", "b b"]'
         tasks:
           - id: 1-2-1_return
             type: io.kestra.core.tasks.debugs.Return
