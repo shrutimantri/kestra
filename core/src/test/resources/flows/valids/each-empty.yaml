@@ -3,8 +3,13 @@ namespace: io.kestra.tests
 
 tasks:
   - id: 1_each
+<<<<<<< Updated upstream
     type: io.kestra.plugin.core.flow.EachSequential
     value: '[]'
+=======
+    type: io.kestra.core.tasks.flows.ForEach
+    values: '[]'
+>>>>>>> Stashed changes
     tasks:
       - id: 1-1
         type: io.kestra.plugin.core.debug.Return

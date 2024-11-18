@@ -15,8 +15,13 @@ tasks:
         name: "{{ inputs.state }}"
 
       - id: each1
+<<<<<<< Updated upstream
         type: io.kestra.plugin.core.flow.EachSequential
         value: '["a", "b"]'
+=======
+        type: io.kestra.core.tasks.flows.ForEach
+        values: '["a", "b"]'
+>>>>>>> Stashed changes
         tasks:
           - id: getEach1
             type: io.kestra.plugin.core.state.Get
@@ -36,8 +41,13 @@ tasks:
         name: "{{ inputs.state }}"
 
       - id: each2
+<<<<<<< Updated upstream
         type: io.kestra.plugin.core.flow.EachSequential
         value: '["a", "b"]'
+=======
+        type: io.kestra.core.tasks.flows.ForEach
+        values: '["a", "b"]'
+>>>>>>> Stashed changes
         tasks:
           - id: getEach2
             type: io.kestra.plugin.core.state.Get

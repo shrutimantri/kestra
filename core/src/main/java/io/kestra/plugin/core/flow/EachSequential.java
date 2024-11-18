@@ -65,12 +65,18 @@ import java.util.Optional;
                         condition: '{{ taskrun.value == "value 2" }}'
                         then:
                           - id: after_if
+<<<<<<< Updated upstream:core/src/main/java/io/kestra/plugin/core/flow/EachSequential.java
                             type: io.kestra.plugin.core.debug.Return
                             format: "After if {{ parent.taskrun.value }}"
+=======
+                            type: io.kestra.core.tasks.debugs.Return
+                            format: 'After if {{ parent.taskrun.value }}'
+>>>>>>> Stashed changes:core/src/main/java/io/kestra/core/tasks/flows/EachSequential.java
                 """
         ),
         @Example(
             full = true,
+<<<<<<< Updated upstream:core/src/main/java/io/kestra/plugin/core/flow/EachSequential.java
             title = "This task shows that the value can be a bullet-style list. The task iterates over the list of values and executes the `each_value` child task for each value.",
             code = """
                 id: each_sequential_flow
@@ -80,10 +86,22 @@ import java.util.Optional;
                   - id: each_sequential
                     type: io.kestra.plugin.core.flow.EachSequential
                     value:
+=======
+            title = "This task shows that the value can be a bullet-style list. The task iterates over the list of values and executes the `each-value` child task for each value.",
+            code = """
+                id: each_sequential
+                namespace: dev
+                
+                tasks:
+                  - id: each-sequential
+                    type: io.kestra.core.tasks.flows.EachSequential
+                    value: 
+>>>>>>> Stashed changes:core/src/main/java/io/kestra/core/tasks/flows/EachSequential.java
                       - value 1
                       - value 2
                       - value 3
                     tasks:
+<<<<<<< Updated upstream:core/src/main/java/io/kestra/plugin/core/flow/EachSequential.java
                       - id: each_value
                         type: io.kestra.plugin.core.debug.Return
                         format: "{{ task.id }} with value '{{ taskrun.value }}'"
@@ -91,6 +109,14 @@ import java.util.Optional;
         ),
     },
     aliases = "io.kestra.core.tasks.flows.EachSequential"
+=======
+                      - id: each-value
+                        type: io.kestra.core.tasks.debugs.Return
+                        format: "{{ task.id }} with value '{{ taskrun.value }}'"
+                """
+        ),        
+    }
+>>>>>>> Stashed changes:core/src/main/java/io/kestra/core/tasks/flows/EachSequential.java
 )
 @Deprecated(since = "0.19", forRemoval = true)
 public class EachSequential extends Sequential implements FlowableTask<VoidOutput> {

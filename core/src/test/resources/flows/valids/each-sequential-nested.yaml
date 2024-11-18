@@ -3,15 +3,25 @@ namespace: io.kestra.tests
 
 tasks:
   - id: 1_each
+<<<<<<< Updated upstream
     type: io.kestra.plugin.core.flow.EachSequential
     value: ["s1", "s2", "s3"]
+=======
+    type: io.kestra.core.tasks.flows.ForEach
+    values: ["s1", "s2", "s3"]
+>>>>>>> Stashed changes
     tasks:
       - id: 1-1_return
         type: io.kestra.plugin.core.debug.Return
         format: "{{task.id}} > {{taskrun.value}} > {{taskrun.startDate}}"
       - id: 1-2_each
+<<<<<<< Updated upstream
         type: io.kestra.plugin.core.flow.EachSequential
         value: '["a a", "b b"]'
+=======
+        type: io.kestra.core.tasks.flows.ForEach
+        values: '["a a", "b b"]'
+>>>>>>> Stashed changes
         tasks:
           - id: 1-2-1_return
             type: io.kestra.plugin.core.debug.Return

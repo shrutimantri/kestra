@@ -203,7 +203,11 @@ import static io.kestra.core.utils.Rethrow.throwFunction;
 
                 tasks:
                   - id: loop_over_files
+<<<<<<< Updated upstream:core/src/main/java/io/kestra/plugin/core/flow/ForEachItem.java
                     type: io.kestra.plugin.core.flow.ForEach
+=======
+                    type: io.kestra.core.tasks.flows.ForEach
+>>>>>>> Stashed changes:core/src/main/java/io/kestra/core/tasks/flows/ForEachItem.java
                     values: "{{ trigger.objects | jq('.[].uri') }}"
                     tasks:
                       - id: subflow_per_batch

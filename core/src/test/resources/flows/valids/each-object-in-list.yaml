@@ -3,8 +3,13 @@ namespace: io.kestra.tests
 
 tasks:
   - id: 1_each
+<<<<<<< Updated upstream
     type: io.kestra.plugin.core.flow.EachSequential
     value:
+=======
+    type: io.kestra.core.tasks.flows.ForEach
+    values:
+>>>>>>> Stashed changes
       - value 1
       - {"key": "my-key", "value": "my-value"}
       - key: my-complex

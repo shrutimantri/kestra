@@ -6,8 +6,13 @@ tasks:
     type: io.kestra.plugin.core.debug.Return
     format: "{{task.id}} > {{taskrun.startDate}}"
   - id: 2_each
+<<<<<<< Updated upstream
     type: io.kestra.plugin.core.flow.EachSequential
     value: '["a", "b"]'
+=======
+    type: io.kestra.core.tasks.flows.ForEach
+    values: '["a", "b"]'
+>>>>>>> Stashed changes
     tasks:
       # Switch
       - id: 2-1_switch
@@ -24,8 +29,13 @@ tasks:
               format: "{{task.id}}"
 
             - id: 2-1_each
+<<<<<<< Updated upstream
               type: io.kestra.plugin.core.flow.EachSequential
               value: '["1", "2"]'
+=======
+              type: io.kestra.core.tasks.flows.ForEach
+              values: '["1", "2"]'
+>>>>>>> Stashed changes
               tasks:
               - id: 2-1-1_switch
                 type: io.kestra.plugin.core.flow.Switch
